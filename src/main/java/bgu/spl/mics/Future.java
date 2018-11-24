@@ -51,7 +51,7 @@ public class Future<T> {
 	/**
      * @return true if this object has been resolved, false otherwise
      */
-	public boolean isDone() { //Done. should be ok
+	public boolean isDone() { //Done. should be ok.
 		//TODO: implement this.
 		if(result!=null)
 			return true;
