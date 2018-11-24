@@ -11,15 +11,19 @@ import java.util.concurrent.TimeUnit;
  * No public constructor is allowed except for the empty constructor.
  */
 public class Future<T> {
-	
+
+	private T result;
+
+
 	/**
 	 * This should be the the only public constructor in this class.
 	 */
 	public Future() {
 		//TODO: implement this
-		//checking if addition will be seen on github, now for reallll, this is cool
+		result=null;
+
 	}
-	
+
 	/**
      * retrieves the result the Future object holds if it has been resolved.
      * This is a blocking method! It waits for the computation in case it has
@@ -28,24 +32,31 @@ public class Future<T> {
      * @return return the result of type T if it is available, if not wait until it is available.
      * 	       
      */
-	public T get() {
+	public T get() {//Done, not sure if ok.
 		//TODO: implement this.
-		return null;
+		T res=get(30,TimeUnit.MICROSECONDS);//need to verify this
+		if (res!=null) return res;
+		else return null;
 	}
 	
 	/**
      * Resolves the result of this Future object.
      */
-	public void resolve (T result) {
+	public void resolve (T result) { //Done. should be ok.
 		//TODO: implement this.
+		this.result=result;
 	}
+
 	
 	/**
      * @return true if this object has been resolved, false otherwise
      */
-	public boolean isDone() {
+	public boolean isDone() { //Done. should be ok
 		//TODO: implement this.
-		return false;
+		if(result!=null)
+			return true;
+		else
+			return false;
 	}
 	
 	/**
@@ -53,7 +64,7 @@ public class Future<T> {
      * This method is non-blocking, it has a limited amount of time determined
      * by {@code timeout}
      * <p>
-     * @param timout 	the maximal amount of time units to wait for the result.
+     * @param timeout 	the maximal amount of time units to wait for the result.
      * @param unit		the {@link TimeUnit} time units to wait.
      * @return return the result of type T if it is available, if not, 
      * 	       wait for {@code timeout} TimeUnits {@code unit}. If time has
@@ -61,7 +72,13 @@ public class Future<T> {
      */
 	public T get(long timeout, TimeUnit unit) {
 		//TODO: implement this.
-		return null;
+		while( unit.convert(timeout, unit)<timeout) {//possibly not how im supposed to do this,ask aviad
+			if (isDone())
+				return result;
+		}
+				return null;
 	}
+
+
 
 }
