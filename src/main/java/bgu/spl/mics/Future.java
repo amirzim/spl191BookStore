@@ -37,7 +37,7 @@ public class Future<T> {
 		T res=get(30,TimeUnit.MICROSECONDS);//need to verify this
 		if (res!=null) return res;
 		else return null;
-	}
+	}//shachar are you getting this?
 	
 	/**
      * Resolves the result of this Future object.
@@ -72,7 +72,7 @@ public class Future<T> {
      */
 	public T get(long timeout, TimeUnit unit) {
 		//TODO: implement this.
-		while( unit.convert(timeout, unit)<timeout) {//possibly not how im supposed to do this,ask aviad
+		while( unit.convert(timeout, unit)<timeout) {//possibly not how im supposed to do this,ask aviad/do this with sleep
 			if (isDone())
 				return result;
 		}

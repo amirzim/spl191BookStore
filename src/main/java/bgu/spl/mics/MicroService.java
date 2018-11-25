@@ -52,7 +52,7 @@ public abstract class MicroService implements Runnable {
      *                 {@code type} are taken from this micro-service message
      *                 queue.
      */
-    protected final <T, E extends Event<T>> void subscribeEvent(Class<E> type, Callback<E> callback) {
+    protected final <T, E extends Event<T>> void subscribeEvent(Class<E> type, Callback<E> callback) {//TYPE-WHAT I SIGNED UP FOR, CALLBACK-WHAT I WANT TO HAPPEN
         //TODO: implement this.
     }
 
