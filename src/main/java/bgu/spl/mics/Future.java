@@ -37,7 +37,7 @@ public class Future<T> {
 		T res=get(30,TimeUnit.MICROSECONDS);//need to verify this
 		if (res!=null) return res;
 		else return null;
-	}//shachar are you getting this?
+	}//shachar are you getting this? tralalala
 	
 	/**
      * Resolves the result of this Future object.
